@@ -117,7 +117,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid #3346E0;outline-offset
     if (f.querySelector('[name=_honey]').value) return;
     err.hidden=true; b.disabled=true; b.textContent='Sending…'; b.style.opacity='0.7';
     var data={}; new FormData(f).forEach(function(v,k){ if(k!=='_honey') data[k]=v; });
-    var done=false, timer=setTimeout(function(){ if(!done){ done=true; showOk(); } }, 8000);
+    var done=false, timer=setTimeout(function(){ if(!done){ b.textContent='Still sending…'; } }, 6000);
     function showOk(){ f.hidden=true; ok.hidden=false; ok.style.display='flex'; }
     function fail(){ if(done) return; done=true; clearTimeout(timer); b.disabled=false; b.textContent='Send message'; b.style.opacity=''; err.hidden=false; }
     fetch('https://formsubmit.co/ajax/byteoneai@gmail.com', {method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body:JSON.stringify(data)})
