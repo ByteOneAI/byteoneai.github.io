@@ -1,12 +1,12 @@
 /* ByteOneAI visual layer */
 .hero-bg{position:relative;isolation:isolate}
-/* very light notebook paper: ruled lines + margin line */
+/* very light squared (graph-paper) notebook pattern */
 html body{background-color:#F6F5F1;
   background-image:
-    linear-gradient(90deg,transparent 71px,rgba(51,70,224,.09) 71px,rgba(51,70,224,.09) 72px,transparent 72px),
-    repeating-linear-gradient(to bottom,transparent 0,transparent 31px,rgba(51,70,224,.055) 31px,rgba(51,70,224,.055) 32px)}
+    linear-gradient(to right,rgba(51,70,224,.055) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(51,70,224,.055) 1px,transparent 1px);
+  background-size:28px 28px;background-position:-1px -1px}
 body > div:first-of-type{background:transparent!important}
-@media (max-width:900px){html body{background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,rgba(51,70,224,.05) 31px,rgba(51,70,224,.05) 32px)}}
 .hero{position:relative}
 .hero-home{display:flex!important;flex-wrap:wrap;align-items:center;gap:40px 56px}
 .hero-home .hero-text{flex:1 1 560px;min-width:0}
