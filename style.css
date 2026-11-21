@@ -1,0 +1,24 @@
+/* ByteOneAI visual layer */
+.hero-bg{position:relative;isolation:isolate}
+.hero-bg::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(rgba(51,70,224,.22) 1.3px,transparent 1.6px);background-size:22px 22px;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.55) 55%,transparent 100%);
+          mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.55) 55%,transparent 100%)}
+.hero{position:relative}
+.hero-home{display:flex!important;flex-wrap:wrap;align-items:center;gap:40px 56px}
+.hero-home .hero-text{flex:1 1 560px;min-width:0}
+.hero-home h1{font-size:clamp(3rem,6vw,5.4rem)!important}
+.hero-art{flex:0 1 400px;max-width:400px;width:100%;margin-inline:auto}
+.hero-art svg{width:100%;height:auto;display:block}
+.hero-chip{position:absolute;top:88px;right:32px}
+@media (max-width:900px){.hero-chip{display:none}.hero-art{max-width:300px}}
+.pulse{animation:pulse 4.8s ease-in-out infinite}
+.pulse.d1{animation-delay:.8s}.pulse.d2{animation-delay:1.9s}.pulse.d3{animation-delay:3.1s}.pulse.d4{animation-delay:2.4s}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.float{animation:float 7s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media (prefers-reduced-motion:reduce){.pulse,.float{animation:none}}
+.band-tint{background:#EEF0FB}
+.site-footer{background:#0B1440;border:0!important}
+.site-footer,.site-footer *{color:#C9CFEE!important}
+.site-footer a:hover{color:#FFFFFF!important}
