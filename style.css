@@ -47,3 +47,27 @@ html{scroll-behavior:smooth;scroll-padding-top:96px}
   .js .reveal,.js .hero-art .tile{opacity:1!important;transform:none!important;transition:none!important}
   .lift:hover{transform:none}
 }
+
+/* ---------- Dynamic tile artwork ---------- */
+.hero-art{perspective:1000px;will-change:transform}
+.tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5%;aspect-ratio:1/1;
+  transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.t{position:relative;aspect-ratio:1/1;border-radius:25%;border:2px solid transparent;background:#E3E7FB;cursor:pointer;padding:0;
+  opacity:var(--o,1);transform:translate(var(--tx,0px),var(--ty,0px)) scale(var(--s,1));
+  transition:background-color .7s ease,border-color .7s ease,opacity .6s ease,box-shadow .4s ease,
+             transform .55s cubic-bezier(.34,1.56,.64,1)}
+.t:focus-visible{outline:3px solid #3346E0;outline-offset:3px}
+.t[data-state=light]{background:#E3E7FB}
+.t[data-state=blue]{background:#3346E0;box-shadow:0 10px 24px -14px rgba(51,70,224,.9)}
+.t[data-state=navy]{background:#0B1440;box-shadow:0 10px 24px -14px rgba(11,20,64,.9)}
+.t[data-state=white]{background:#FFFFFF;border-color:#D5DAF5}
+.t[data-state=empty]{background:transparent;border:2px dashed #D5DAF5}
+.t .dot{position:absolute;left:50%;top:50%;width:19%;height:19%;border-radius:50%;background:#8E9BFF;transform:translate(-50%,-50%) scale(0);transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.t[data-state=navy] .dot{transform:translate(-50%,-50%) scale(1)}
+.t[data-state=blue] .dot{background:#FFFFFF}
+.t.spark .dot{transform:translate(-50%,-50%) scale(1)}
+.t.glow{filter:brightness(1.12) saturate(1.1)}
+.t.logo{background:#3346E0;box-shadow:0 16px 34px -14px rgba(51,70,224,.95);z-index:2;animation:float 6s ease-in-out infinite}
+.t.logo .bar{position:absolute;left:29.7%;top:25%;width:15.6%;height:50%;border-radius:4.7%/9.4%;background:#fff}
+.t.logo .ldot{position:absolute;left:56.25%;top:54.7%;width:18.75%;height:18.75%;border-radius:50%;background:#fff}
+@media (prefers-reduced-motion:reduce){.t,.tiles{transition:none!important}.t.logo{animation:none}}
